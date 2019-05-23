@@ -76,3 +76,12 @@ Array.prototype.inArray = function(check) {
 
 var checkingArray = [ "8", "9", "10", 10 ];
 console.log(checkingArray.inArray(5 + 5));
+
+// array map
+var arr = ['aaa', 'aab', 'asdf', 'fdea', 'bbbba'];
+var returnArr = arr.map(function(val) {
+    return val.split('a').join('1');
+});
+
+console.log(arr);
+console.log(returnArr);

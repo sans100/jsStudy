@@ -2,12 +2,12 @@
 // 함수에 new를 붙이면 그 리턴값 p는 객체가 된다!!!!
 
 function Person () {}
-var p1 = new Person();
+var p1 = new Person(); // p1 = Person {} 이것과 같다
 p1.name = 'egoing';
 p1.introduce = function () {
     return 'My name is ' + this.name;
 }
-console.log(p1.introduce()+"<br />");
+console.log(p1.introduce());
 
 var p2 = new Person();
 p2.name = 'sangju';
@@ -24,7 +24,7 @@ function Persons (name) {
     }
 }
 p3 = new Persons('egoings');
-console.log(p3.introduce()+"<br />");
+console.log(p3.introduce());
 p4 = new Persons('sanghu');
 console.log(p4.introduce());
 
