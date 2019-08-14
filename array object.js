@@ -67,3 +67,5 @@ var grade = {
     }
 }
 grade.show();
+
+// https://www.opentutorials.org/course/743/6578 아주 어렵군

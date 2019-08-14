@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <article>
+
+        </article>
+        <input type="button" value="fetch" onclick="
+            /*fetch('css').then(function(response){
+                response.text().then(function(text){
+                    document.querySelector('article').innerHTML = text;
+                })
+            })*/
+            // asynchronous 비동기
+            fetch('html').then(function(response){
+                console.log(response.status);
+            });
+            console.log(1);
+            console.log(2);
+        ">
+    </body>
+</html>
