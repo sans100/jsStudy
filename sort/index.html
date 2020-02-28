@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <title>WEB1 - Welcome</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <!--ul class="list">
+        <li id="alpha">32</li>
+        <li id="beta">180</li>
+        <li id="delta">28</li>
+    </ul-->
+    <ul class="list">
+        <li id="alpha">
+            <div>
+                <span class="end-date">32</span>
+            </div>
+        </li>
+        <li id="beta">
+            <div>
+                <span class="end-date">180</span>
+            </div>
+        </li>
+        <li id="delta">
+            <div>
+                <span class="end-date">28</span>
+            </div>
+        </li>
+        <li id="delta">
+            <div>
+                <span class="end-date">2</span>
+            </div>
+        </li>
+        <li id="delta">
+            <div>
+                <span class="end-date">888</span>
+            </div>
+        </li>
+        <li id="delta">
+            <div>
+                <span class="end-date">45</span>
+            </div>
+        </li>
+        <li id="delta">
+            <div>
+                <span class="end-date">70</span>
+            </div>
+        </li>
+    </ul>
+    <script>
+        function sortList(ul){
+            console.log(ul);
+            var new_ul = ul.cloneNode(false);
+
+            // Add all lis to an array
+            var lis = [];
+            for(var i = ul.childNodes.length; i--;){
+                if(ul.childNodes[i].nodeName === 'LI')
+                    lis.push(ul.childNodes[i]);
+            }
+
+            // Sort the lis in descending order
+            lis.sort(function(a, b){
+                console.log(a.childNodes[1].childNodes[1].childNodes[0].data);
+                //console.log(b.childNodes[0].data);
+                return parseInt(a.childNodes[1].childNodes[1].childNodes[0].data , 10) - parseInt(b.childNodes[1].childNodes[1].childNodes[0].data , 10);
+            });
+            console.log(lis);
+
+            // Add them into the ul in order
+            for(var i = 0; i < lis.length; i++)
+                new_ul.appendChild(lis[i]);
+            ul.parentNode.replaceChild(new_ul, ul);
+        }
+        sortList(document.getElementsByClassName('list')[0]);
+    </script>
+</body>
+</html>
