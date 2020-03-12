@@ -7,7 +7,7 @@
                     <li>
                         <span>페이지 Depth</span>
                         <div class="page-depth" v-for="(n, depthIndex) in 3" :key="depthIndex">
-                            <span>Depth{{n}}</span> <input type="text" placeholder="페이지 Depth">
+                            <span>Depth{{n}}</span> <input type="text" placeholder="페이지 명">
                         </div>
                     </li>
                     <li>
@@ -24,8 +24,8 @@
                     </li>
                 </ul>
                 <div class="btn-box">
-                    <button type="button" popup-btn-markup-add>확인</button>
-                    <button type="button" @click="onClickPopupMarkupAdd">취소</button>
+                    <button type="button" @click="onClickAddMarkupList">확인</button>
+                    <button type="button" @click="onClickPopupMarkup">취소</button>
                 </div>
             </div>
         </div>
@@ -40,8 +40,11 @@
             }),
         },
         methods: {
-            onClickPopupMarkupAdd() {
-                this.$store.commit('POPUP_MARKUP_ADD_OPEN');
+            onClickPopupMarkup() {
+                this.$store.commit('POPUP_MARKUP');
+            },
+            onClickAddMarkupList() {
+                this.$store.commit('ADD_MARKUP_LIST');
             },
         },
     };

@@ -3,20 +3,40 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-export const POPUP_MARKUP_ADD_OPEN = 'POPUP_MARKUP_ADD_OPEN';
+export const POPUP_MARKUP = 'POPUP_MARKUP';
+export const ADD_MARKUP_LIST = 'ADD_MARKUP_LIST';
 
 export default new Vuex.Store({
     state: {
         popupMarkupAdd: {
             opened: false,
-        }
+        },
+        popupInputList: {
+            depth1: "",
+            depth2: "",
+            depth3: "",
+            listName: "",
+            listLink: "",
+            doneFlag: 1,
+            memo: "",
+        },
     }, // vue의 data와 비슷
     getters: {
 
     }, // vue의 computed와 비슷
     mutations: {
-        [POPUP_MARKUP_ADD_OPEN](state) {
+        [POPUP_MARKUP](state) {
             state.popupMarkupAdd.opened = state.popupMarkupAdd.opened === false ? true : false;
+        },
+        [ADD_MARKUP_LIST](state) {
+            state.popupMarkupAdd.opened = state.popupMarkupAdd.opened === false ? true : false;
+            this.markups.push({
+                depth1: '뎁스1',
+                depth2: '뎁스2',
+                depth3: '뎁스3',
+                listName: '메인페이지',
+                memo: '메모',
+            });
         },
     }, // state를 수정할 때 사용, 동기적으로
     actions: {

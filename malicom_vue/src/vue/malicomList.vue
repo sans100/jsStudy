@@ -22,18 +22,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr sample><!-- 'success'클래스 완료 -->
-                    <td depth1></td>
-                    <td depth2></td>
-                    <td depth3></td>
-                    <td link-page><a href="#" target="_blank">test.html</a></td>
+                <tr v-for="tdText in markups" :key="tdText"><!-- 'success'클래스 완료 -->
+                    <td depth1>{{tdText.depth1}}</td>
+                    <td depth2>{{tdText.depth2}}</td>
+                    <td depth3>{{tdText.depth3}}</td>
+                    <td link-page><a href="#" target="_blank">{{tdText.listName}}.html</a></td>
                     <td class="check">진행중</td>
-                    <td memo></td>
+                    <td memo>{{tdText.memo}}</td>
                     <td class="btn-td"><button btn-modify>수정</button><button btn-modified class="btn-modified">완료</button><button type="button" btn-delete>삭제</button><button btn-low-add title="하위 리스트 추가">추가</button></td>
                 </tr>
             </tbody>
         </table>
-        <button class="btn-markup-add" @click="onClickPopupMarkupAdd">리스트 등록</button>
+        <button class="btn-markup-add" @click="onClickPopupMarkup">리스트 등록</button>
     </div>
 </template>
 <script>
@@ -41,8 +41,8 @@
         computed: {
         },
         methods: {
-            onClickPopupMarkupAdd() {
-                this.$store.commit('POPUP_MARKUP_ADD_OPEN');
+            onClickPopupMarkup() {
+                this.$store.commit('POPUP_MARKUP');
             },
         },
     };
