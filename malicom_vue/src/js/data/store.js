@@ -11,7 +11,8 @@ export default new Vuex.Store({
         popupMarkupAdd: {
             opened: false,
         },
-        popupInputList: {
+        markupsData: {
+            markups: [],
             depth1: "",
             depth2: "",
             depth3: "",
@@ -30,6 +31,7 @@ export default new Vuex.Store({
         },
         [ADD_MARKUP_LIST](state) {
             state.popupMarkupAdd.opened = state.popupMarkupAdd.opened === false ? true : false;
+            console.log(this.markups)
             this.markups.push({
                 depth1: '뎁스1',
                 depth2: '뎁스2',

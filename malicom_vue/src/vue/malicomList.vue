@@ -37,8 +37,23 @@
     </div>
 </template>
 <script>
+    import { mapState } from 'vuex';
     export default {
+        data() {
+            return {
+            }
+        },
         computed: {
+            ...mapState({ 
+                markups: state => state.markupsData.markups,
+                depth1: state => state.markupsData.depth1,
+                depth2: state => state.markupsData.depth2,
+                depth3: state => state.markupsData.depth3,
+                listName: state => state.markupsData.listName,
+                listLink: state => state.markupsData.listLink,
+                doneFlag: state => state.markupsData.doneFlag,
+                memo: state => state.markupsData.memo,
+            }),
         },
         methods: {
             onClickPopupMarkup() {
