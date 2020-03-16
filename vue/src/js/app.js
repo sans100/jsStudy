@@ -6,6 +6,7 @@ import rockPaperScissors from '../vue/rockPaperScissors.vue';
 import lottoGenerator from '../vue/lottoGenerator.vue';
 import ticTacToe from '../vue/ticTacToe.vue';
 import mineSweeper from '../vue/mineSweeper.vue';
+import router from '../vue/router.vue';
 
 new Vue(numberBaseball).$mount('#root');
 
@@ -18,3 +19,5 @@ new Vue(lottoGenerator).$mount('#root4');
 new Vue(ticTacToe).$mount('#root5');
 
 new Vue(mineSweeper).$mount('#root6');
+
+new Vue(router).$mount('#root7');
