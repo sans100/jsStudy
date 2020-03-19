@@ -21,6 +21,10 @@
         </select>
         <h2>{{ textarea }}</h2>
         <textarea v-model="textarea"></textarea>
+        <h2>{{ str +" : "+ typeof str }}</h2>
+        <input type="text" v-model.trim.lazy=" str ">
+        <h2>{{ num +" : "+ typeof num }}</h2>
+        <input type="number" v-model.number=" num ">
     </div>
 </template>
 <script>
@@ -34,6 +38,8 @@
                 radio: "",
                 textarea: "",
                 select: "",
+                str: 'default',
+                num: '10'
             }
         },
         methods: {
