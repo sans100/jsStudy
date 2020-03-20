@@ -4,12 +4,12 @@
             <li v-for="j in 9" :key="j">
                 {{ i }} x {{ j }} = {{ i * j }}
             </li>
-        </ul-->
+        </ul>
         <p><span v-for=" item in arr " :key="item">{{ item }}</span></p>
         <p><span v-for=" item in obj " :key="item">{{ item }}</span></p>
         <p v-for=" (item, index) in arr " :key="item">{{ index }} => {{ item }}</p>
         <p v-for=" (item, key) in obj " :key="item">{{ key }} => {{ item }}</p>
-        <p v-for=" (item, key, index) in obj " :key="item">{{ index }} => {{ key }} : {{ item }}</p>
+        <p v-for=" (item, key, index) in obj " :key="item">{{ index }} => {{ key }} : {{ item }}</p-->
         <ul>
             <li v-for=" (no, i) in arr2 " :key="no">
                 <button @click="remove(i)">x</button>{{ no }}
