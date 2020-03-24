@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs'); // fileSystem
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // html 파일 생성
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin"); // css파일 별로 추출
+//const ExtractTextPlugin = require("extract-text-webpack-plugin"); // css파일 별로 추출
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 function generateHtmlPlugins(templateDir) {
@@ -24,7 +24,7 @@ const htmlPlugins = generateHtmlPlugins('./src/');
 module.exports = {
     context: path.resolve(__dirname, './src/'),
     entry: {
-        ui: ['./css/style.sass', './js/app.js'],
+        ui: ['./js/app.js'],
     },
     output: {
         path: path.resolve(__dirname, './dist/'),
@@ -38,19 +38,7 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'less-loader'],
-                    publicPath: '../'
-                })
-            },
-            {
-                test: /\.sass$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader'],
-                    publicPath: '../'
-                })
+                use: ['css-loader', 'less-loader', 'vue-style-loader'],
             },
             {
                 test: /\.m?js$/,
@@ -80,8 +68,13 @@ module.exports = {
             },
         ]
     },
+    resolve: {
+		alias: {
+			vue$: 'vue/dist/vue.esm.js'
+		},
+		extensions: [ '*', '.js', '.vue', '.json' ]
+	},
     plugins: [
-        new ExtractTextPlugin('./css/style.css'),
         new UglifyJsPlugin(),
         new VueLoaderPlugin(),
     ].concat(htmlPlugins),
