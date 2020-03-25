@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-
+import data from '../data-test';
 Vue.use(Vuex);
 
 export const POPUP_MARKUP = 'POPUP_MARKUP';
@@ -8,19 +8,11 @@ export const ADD_MARKUP_LIST = 'ADD_MARKUP_LIST';
 
 export default new Vuex.Store({
     state: {
+        data: data,
         popupMarkupAdd: {
             opened: false,
         },
-        markupsData: {
-            markups: [],
-            depth1: "",
-            depth2: "",
-            depth3: "",
-            listName: "",
-            listLink: "",
-            doneFlag: 1,
-            memo: "",
-        },
+        depth: '',
     }, // vue의 data와 비슷
     getters: {
 
@@ -31,14 +23,9 @@ export default new Vuex.Store({
         },
         [ADD_MARKUP_LIST](state) {
             state.popupMarkupAdd.opened = state.popupMarkupAdd.opened === false ? true : false;
-            console.log(this.markups)
-            this.markups.push({
-                depth1: '뎁스1',
-                depth2: '뎁스2',
-                depth3: '뎁스3',
-                listName: '메인페이지',
-                memo: '메모',
-            });
+            state.data.markups.depths.push({
+                depth: this.depth,
+            })
         },
     }, // state를 수정할 때 사용, 동기적으로
     actions: {

@@ -22,13 +22,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="tdText in markups" :key="tdText"><!-- 'success'클래스 완료 -->
-                    <td depth1>{{tdText.depth1}}</td>
-                    <td depth2>{{tdText.depth2}}</td>
-                    <td depth3>{{tdText.depth3}}</td>
-                    <td link-page><a href="#" target="_blank">{{tdText.listName}}.html</a></td>
+                <tr v-for="(value, index) in data" :key="index"><!-- 'success'클래스 완료 -->
+                    <td depth1>{{value.markups[0].depths[0].name}}</td>
+                    <td depth2>{{value.markups[0].depths[1].name}}</td>
+                    <td depth3>{{value.markups[0].depths[2].name}}</td>
+                    <td link-page><a href="#" target="_blank">{{value.name}}.html</a></td>
                     <td class="check">진행중</td>
-                    <td memo>{{tdText.memo}}</td>
+                    <td memo>{{value.name}}</td>
                     <td class="btn-td"><button btn-modify>수정</button><button btn-modified class="btn-modified">완료</button><button type="button" btn-delete>삭제</button><button btn-low-add title="하위 리스트 추가">추가</button></td>
                 </tr>
             </tbody>
@@ -38,22 +38,15 @@
 </template>
 <script>
     import { mapState } from 'vuex';
+    import data from '../data-test';
+    console.log(data);
     export default {
         data() {
             return {
+                data: data,
             }
         },
         computed: {
-            ...mapState({ 
-                markups: state => state.markupsData.markups,
-                depth1: state => state.markupsData.depth1,
-                depth2: state => state.markupsData.depth2,
-                depth3: state => state.markupsData.depth3,
-                listName: state => state.markupsData.listName,
-                listLink: state => state.markupsData.listLink,
-                doneFlag: state => state.markupsData.doneFlag,
-                memo: state => state.markupsData.memo,
-            }),
         },
         methods: {
             onClickPopupMarkup() {

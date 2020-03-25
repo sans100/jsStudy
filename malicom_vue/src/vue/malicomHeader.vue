@@ -1,16 +1,27 @@
 <template>
     <div class="header">
         <h1>Markup List Common Page</h1>
-        <select>
+        <select v-for="(value, index) in data" :key="index">
             <option selected="selected" value="프로젝트 선택">프로젝트 선택</option>
+            <!--option v-value="value.id">{{value.name}}</option-->
         </select>
         <button>수정</button>
     </div>
 </template>
 <script>
+    import data from '../data-test';
+    // const selectBox = $('.header select');
+    // this.data.forEach(function(data) {
+    //     let selectOpt = `<option value='${data['id']}'>${data['name']}</option>`;
+    //     selectBox.append(selectOpt);
+    // });
+    // selectBox.change(function() {
+    //     let selectProjectId = $(this).val();
+    // });
     export default {
         data() {
             return {
+                data: data,
             }
         },
         methods: {
